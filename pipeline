@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    stages {
+        // Stage 1: Build
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+                // Add build-related commands here, e.g., compiling code, running a build tool like Maven or Gradle
+                // sh 'mvn clean install'  // Uncomment if using Maven
+            }
+        }
+
+        // Stage 2: Test
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // Add test-related commands here, e.g., running unit tests, code coverage tools
+                // sh 'mvn test'  // Uncomment if using Maven
+            }
+        }
+
+        // Stage 3: Deploy
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                // Add deploy-related commands here, e.g., deploying to a server, pushing to Docker
+                // sh 'scp target/myapp.war user@server:/path/to/deploy'  // Example deploy command
+            }
+        }
+    }
+
+    // Optional post actions, e.g., notifications or cleanup
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
