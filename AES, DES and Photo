@@ -1,0 +1,11 @@
+AES:
+Encryption: openssl enc -aes-128-cbc -e -in f1.txt -out f1output.txt -k 00112233445566778899aabbccddeeff -iv 0102030405060708
+Decryption: openssl enc -aes-128-cbc -d -in f1output.txt -out f1desout.txt -k 00112233445566778899aabbccddeeff -iv 0102030405060708
+
+DES:
+Encryption: openssl enc -des-cbc -e -in f1des.txt -out f2des.txt -k 001122334455667788 -iv 01020304
+Decryption: openssl enc -des-cbc -d -in f2des.txt -out f3des.txt -k 001122334455667788 -iv 01020304
+
+Photo
+Encryption: openssl enc -aes-128-cbc -e -in photo.jpg -out photo1.enc -k 00112233445566778899aabbccddeeff -iv 0102030405060708
+Decrption: openssl enc -aes-128-cbc -d -in photo.enc -out decrypt.jpg -k 00112233445566778899aabbccddeeff -iv 0102030405060708
